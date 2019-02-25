@@ -18,66 +18,66 @@ documentation within the .c and .h files, as well as the Makefile.
     (1) determine the input and output data\
     (2) parse the input file\
     (3) sort the CSV table\
-    (4) write the CSV table to a file\
+    (4) write the CSV table to a file
 
 /src/menu.c\
 /src/menu.h\
-    Handles all user interaction.\
+    Handles all user interaction.
 
 
-/src/csv/* handles parsing CSV files, and writing CSV tables to files\
+/src/csv/* handles parsing CSV files, and writing CSV tables to files
 
     /src/csv/datatype.c\
     /src/csv/datatype.h\
         Defines the data types accepted by the CSV parser. That is, the strings
-        that appear after the field name in the header row; as: "name (string)"\
+        that appear after the field name in the header row; as: "name (string)"
 
     /src/csv/errors.c\
     /src/csv/errors.h\
-        Defines errors that the parser can encounter.\
+        Defines errors that the parser can encounter.
 
     /src/csv/fields.c\
     /src/csv/fields.h\
         Defines a Field structure which stores meta-data about a column (data type,
-        field name, sort name)\
+        field name, sort name)
 
     /src/csv/fileconfig.c\
     /src/csv/fileconfig.h\
-        Defines a container structure for the input and output file names.\
+        Defines a container structure for the input and output file names.
 
     /src/csv/parser.c\
     /src/csv/parser.h\
         Defines the functions required to parse a CSV file and output the result as
-        a (generic) table.\
+        a (generic) table.
 
     /src/csv/parserstate.c\
     /src/csv/parserstate.h\
         Defines a state mechanism for the parser. Determines what the parser is
-        currently doing. This is used to facilitate "partial parsing".\
+        currently doing. This is used to facilitate "partial parsing".
 
     /src/csv/reader.c\
     /src/csv/reader.h\
         Defines the functions required to read a CSV file, and outputs the result
-        as a generic Table. Uses parser.c to do the parsing work.\
+        as a generic Table. Uses parser.c to do the parsing work.
 
     /src/csv/serializer.c\
     /src/csv/serializer.h\
         Defines the functions required to serialize a Table in CSV format. This is
         independent of Table, as a Table can be represented in many different
-        formats.\
+        formats.
 
     /src/csv/sorter.c\
     /src/csv/sorter.h\
-        Defines the functions required to sort a Table.\
+        Defines the functions required to sort a Table.
 
     /src/csv/validator.c\
     /src/csv/validator.h\
-        Defines the functions to validate a Table for CSV compatibility.\
+        Defines the functions to validate a Table for CSV compatibility.
 
     /src/csv/writer.c\
     /src/csv/writer.h\
         Defines the functions required to write a Table to CSV format. Uses the
-        serializer to achieve this.\
+        serializer to achieve this.
 
 /src/generic/*\
     Defines generic functions which can be used for many different purposes.\
@@ -85,24 +85,24 @@ documentation within the .c and .h files, as well as the Makefile.
     /src/generic/dynamicstring.c\
     /src/generic/dynamicstring.h\
         Defines a structure that allows dynamic strings. Implements the linked list
-        structure.\
+        structure.
 
     /src/generic/linkedlist.c\
     /src/generic/linkedlist.h\
-        Defines a structure that allows for dynamic (linked) lists.\
+        Defines a structure that allows for dynamic (linked) lists.
 
     /src/generic/stack.c\
     /src/generic/stack.h\
         Defines a structure that permits 'last in/first out' mechanics. Implements
-        the linked list structure.\
+        the linked list structure.
 
     /src/generic/table.c\
     /src/generic/table.h\
-        Defines a structure for the construction of a dynamic N x M list.\
+        Defines a structure for the construction of a dynamic N x M list.
 
     /src/generic/util.c\
     /src/generic/util.h\
-        Defines generic functions that don't belong to any one particular file.\
+        Defines generic functions that don't belong to any one particular file.
 
 
 # Additional information
@@ -118,7 +118,7 @@ mirror the directory structure of /src/.
 STATEMENT OF PROGRESS:\
 [X] DONE\
 [?] PARTIALLY DONE\
-[ ] NOT DONE\
+[ ] NOT DONE
 
 [X] Your program must be thoroughly documented using C comments.\
 [X] Take in two command-line parameters - the names of the input and output files.\
@@ -154,7 +154,6 @@ STATEMENT OF PROGRESS:\
     writing this program, because of the no global variables restriction. Without
     global variables, I believe the only solution is to pass the configuration to
     the sorting function, which I have done.\
-
 [X] Sort the rows of the input file using generic insertion sort (in-place).
     Description: Done.\
 [?] It must import a generic linked list and a compare function, export the
@@ -165,19 +164,18 @@ STATEMENT OF PROGRESS:\
     (now-sorted) list.\
 [X] Write the sorted data to the specified output file, using the same format as
     the input file.
-    Description: Done.\
+    Description: Done.
 
 Miscellaneous checklist:\
 [X] Makefile.\
     Description: Done. Because my program is logically separated into different
     project subdirectories, my Makefile became very complex very fast.\
-[X] Testing on the lab machines.
+[X] Testing on the lab machines.\
     Description: Tested on lab machine identified by service tag FR56HZ1.\
-[X] Testing user input (sanity-checking).
+[X] Testing user input (sanity-checking).\
     Description: Done.\
-[X] Testing for memory leaks.
-    Description: Done. Valgrind finds no potential memory leaks.\
-
+[X] Testing for memory leaks.\
+    Description: Done. Valgrind finds no potential memory leaks.
 
 # Known bugs / defects
 [1] [DEFECT] The program takes a really long time for larger files when being
